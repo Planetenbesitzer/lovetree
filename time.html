@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>宝贝</title>
+    <title>Our Story</title>
 
     <link type="text/css" rel="stylesheet" href="./index_files/default.css">
     <script type="text/javascript" src="./index_files/jquery.min.js"></script>
@@ -13,7 +13,7 @@
     <script type="text/javascript" src="./index_files/jscex-builderbase.min.js"></script>
     <script type="text/javascript" src="./index_files/jscex-async.min.js"></script>
     <script type="text/javascript" src="./index_files/jscex-async-powerpack.min.js"></script>
-    <script type="text/javascript" src="./index_files/functionsCopy.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./index_files/functions.js" charset="utf-8"></script>
     <script type="text/javascript" src="./index_files/love.js" charset="utf-8"></script>
     <style type="text/css">
         .STYLE1 {
@@ -23,13 +23,10 @@
 </head>
 
 <body>
-    <div>
-        <p id="output" style="font-size: 20pt;">这是一行测试文字</p>
-    </div>
     <div id="main">
         <div id="wrap">
             <div id="text">
-                <div id="code", style="display: block;">
+                <div id="code">
                     <span class="say">亲爱的月月</span><br>
                     <span class="say"> </span><br>
                     <span class="say">花开有意,流觞赋歌</span><br>
@@ -43,20 +40,43 @@
                     <span class="say"> </span><br>
                     <span class="say">记得我在宝贝身边~</span><br>
                     <span class="say"> </span><br>
-                    <span class="say", style="background-color: aquamarine;"><span class="space"></span> --爱你的哥哥--</span>
+                    <span class="say"><span class="space"></span> --爱你的哥哥--</span>
                 </div>
             </div>
-            <!-- <div id="clock-box">
+            <div id="clock-box">
                 舒涛<span class="STYLE1">与</span> 晋玉<span class="STYLE1">已经相恋了</span>
                 <div id="clock"></div>
-            </div> -->
-            <!-- <canvas id="canvas" width="1100" height="680"></canvas> -->
+            </div>
+            <canvas id="canvas" width="1100" height="680"></canvas>
         </div>
 
     </div>
 
     <script>
     </script>
+
+    <script>
+        (function () {
+           
+            var textAnimate = eval(Jscex.compile("async", function () {
+                var together = new Date();
+                together.setFullYear(2022, 1, 27); 			//时间年月日
+                together.setHours(18);						//小时	
+                together.setMinutes(0);					//分钟
+                together.setSeconds(0);					//秒前一位
+                together.setMilliseconds(2);				//秒第二位
+
+                $("#clock-box").fadeIn(500);
+                while (true) {
+                    timeElapse(together);
+                    $await(Jscex.Async.sleep(1000));
+                }
+            }));
+
+            textAnimate().start();
+        })();
+    </script>
+
 
 </body>
 
